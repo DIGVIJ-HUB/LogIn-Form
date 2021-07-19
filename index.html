@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="icon" href="./icon/tabicon.jpg ">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section id="form">
+        <form action="#">
+            <div class="imgcontainer">
+                <a href="https://kohli.company/KOHLI/" target="blank">
+                <img src="./images/download.png" alt="Kohli LLP">
+            </a>
+            </div>
+            <div class="formcontainer">
+                <label><b>Username</b></label><br>
+                <input type="text" placeholder="Username" id="uname"><br>
+                <label for="error1" class="error">Username must be contain at least four character</label><br>
+                <label><b>Password</b></label><br>
+                <input type="password" placeholder="Password" id="pwd"><br>
+                <label for="error2" class="error">Password must be contain at least four character</label><br>
+                <label><a href="#">Forget Password</a></label>
+                <div class="buttoncontainer">
+                    <button onclick="buttonFunc()">Log In</button>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+<script src="./jquery.js"></script>
+<script>  
+function buttonFunc()
+    {
+    
+        var username = document.getElementById("uname").value;
+        var password = document.getElementById("pwd").value;
+
+        var regx = /[a-z][a-z][a-z][a-z]/;
+        if(regx.test(username) && regx.test(password))
+        {
+            alert("LogIn successful");
+            $('#uname').css("border", "solid green");
+            $('#pwd').css("border", "solid green");
+            $('label[for="error1"]').hide();
+            $('label[for="error2"]').hide();
+        }
+        else
+        {
+            alert("Please fill form properly.");
+            $('#uname').css("border", "solid red");
+            $('#pwd').css("border", "solid red");
+            $('label[for="error1"]').show();
+            $('label[for="error2"]').show(); 
+        }
+    }
+</script>
+</html>
